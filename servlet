@@ -38,7 +38,10 @@
     4. 找和servlet-mapping中servlet-name一致的servlet ， 找到第7行
     5. 找第8行的servlet-class -> com.atguigu.servlets.AddServlet
     6. 用户发送的是post请求（method=post） ， 因此 tomcat会执行AddServlet中的doPost方法
-    -->
+    7.AddServlet继承了Httpservlet 重写其中的doPost方法，request.getparamete("名称")获取值value;
+    Httpservlet类需要导入tomcat中servlet jar包
+   8.在通过daoImpl实现类来实现与数据库的交互
+-->
 </web-app>
 
 
