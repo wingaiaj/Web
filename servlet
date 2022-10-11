@@ -46,7 +46,8 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 public class AddServlet extends HttpServlet {
     @Override
-      /*
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            /*
         //get方式目前不需要设置编码（基于tomcat8）
         //如果是get请求发送的中文数据，转码稍微有点麻烦（tomcat8之前）
         String fname = request.getParameter("fname");
@@ -59,7 +60,6 @@ public class AddServlet extends HttpServlet {
         //post方式下，设置编码，防止中文乱码
         //需要注意的是，设置编码这一句代码必须在所有的获取参数动作之前
         request.setCharacterEncoding("UTF-8");
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String id1 = request.getParameter("id");
         String age1 = request.getParameter("age");
