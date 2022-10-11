@@ -44,6 +44,19 @@
 -->
 </web-app>
 
+public class AddServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String id1 = request.getParameter("id");
+        String age1 = request.getParameter("age");
+        int id = Integer.parseInt(id1);
+        int age = Integer.parseInt(age1);
+
+        PersonDAOImpl personDAO = new PersonDAOImpl();
+        personDAO.insert(new Person(name,id,age));
+    }
+}
 
    
 <!-- 配置Servlet本身 -->
