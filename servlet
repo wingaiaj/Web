@@ -201,6 +201,16 @@
     1） 添加thymeleaf的jar包
     2） 新建一个Servlet类ViewBaseServlet
     3） 在web.xml文件中添加配置
+    --------------------------------------------------
+     <context-param>
+        <param-name>view-prefix</param-name>
+        <param-value>/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>view-suffix</param-name>
+        <param-value>.html</param-value>
+    </context-param>
+    --------------------------------------------------
        - 配置前缀 view-prefix
        - 配置后缀 view-suffix
     4） 使得我们的Servlet继承ViewBaseServlet
