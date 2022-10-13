@@ -42,7 +42,28 @@ public class ServletDemo02 extends HttpServlet {
         System.out.println((String)uname);
     }
 }
-   3） application： 一次应用程序范围有效
+ 3） application： 一次应用程序范围有效  另外客户端打开一样能获取到保存作用域中的值
+   @WebServlet("/demo01")
+public class ServletDemo01 extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ServletContext servletContext = req.getServletContext();
+        servletContext.setAttribute("uname", "device");
+
+        resp.sendRedirect("demo02");
+    }
+}
+
+@WebServlet("/demo02")
+public class ServletDemo02 extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ServletContext application = req.getServletContext();
+        Object uname = application.getAttribute("uname");
+        System.out.println(uname);
+
+    }
+}
 
 2. 路径问题
    1） 相对路径
