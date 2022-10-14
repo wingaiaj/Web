@@ -68,3 +68,73 @@ public class ServletDemo02 extends HttpServlet {
 2. 路径问题
    1） 相对路径
    2） 绝对路径
+   ---------------------------------------------------------------------------------------------------
+   //        thmelefa 用法
+   
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/index.css">
+        <script language="JavaScript" src="js/index.js"></script>
+	</head>
+	<body>
+		<div id="div_container">
+			<div id="div_fruit_list">
+				<p class="center f30">欢迎使用水果库存后台管理系统</p>
+				<div style="border:0px solid red;width:60%;margin-left:20%;text-align:right;">
+					<a th:href="@{/add.html}" style="border:0px solid blue;margin-bottom:4px;">添加新库存记录</a>
+				</div>
+				<table id="tbl_fruit">
+					<tr>
+						<th class="w20">名称1</th>
+						<th class="w20">单价</th>
+						<th class="w20">库存</th>
+						<th>操作</th>
+					</tr>
+					<tr th:if="${#lists.isEmpty(session.fruitList)}">
+						<td colspan="4">对不起，库存为空！</td>
+					</tr>
+					<tr th:unless="${#lists.isEmpty(session.fruitList)}" th:each="fruit : ${session.fruitList}">
+						<!-- <td><a th:text="${fruit.fname}" th:href="@{'/edit.do?fid='+${fruit.fid}}">苹果</a></td> -->
+						<td><a th:text="${fruit.fname}" th:href="@{/edit.do(fid=${fruit.fid})}">苹果</a></td>
+						<td th:text="${fruit.price}">5</td>
+						<td th:text="${fruit.fcount}">20</td>
+						<!-- <td><img src="imgs/del.jpg" class="delImg" th:onclick="'delFruit('+${fruit.fid}+')'"/></td> -->
+                        <td><img src="imgs/del.jpg" class="delImg" th:onclick="|delFruit(${fruit.fid})|"/></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+ </html>
+ 
+-
+ 
+  <form th:action="@{update.do}" method="post" th:object="${fruit}">
+        <input type="hidden" name="fid" th:value="*{fid}">
+        <table id="edit_fruit">
+            <tr>
+                <td class="w20">名称</td>
+                <td><input type="text" name="fname" th:value="*{fname}"/></td>
+            </tr>
+            <tr>
+                <td class="w20">单价</td>
+                <td><input type="text" name="fprice" th:value="*{price}"/></td>
+            </tr>
+            <tr>
+                <td class="w20">库存</td>
+                <td><input type="text" name="fcount" th:value="*{fcount}"/></td>
+            </tr>
+            <tr>
+                <td class="w20">备注</td>
+                <td><input type="text" name="remark" th:value="*{remark}"/></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" id="edit_submit"><input type="submit" name="submit" value="确认"></td>
+            </tr>
+        </table>
+    </form>
+-------------------------------------------------------------------------------------------------------------------
+   
+   
