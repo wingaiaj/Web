@@ -100,8 +100,8 @@ public class ServletDemo02 extends HttpServlet {
 						<td th:text="${fruit.price}">5</td>
 						<td th:text="${fruit.fcount}">20</td>	
 						<!-- <td><img src="imgs/del.jpg" class="delImg" th:onclick="'delFruit('+${fruit.fid}+')'"/></td> -->
-					
-						                             thmeleaf 表达式 改为 ||遇到th语法自动识别
+										
+						                             thmeleaf 表达式 改为 ||遇到th语法自动识别 字符串拼接上面 delfruit()为字符串
                         <td><img src="imgs/del.jpg" class="delImg" th:onclick="|delFruit(${fruit.fid})|"/></td>
 					</tr>
 				</table>
