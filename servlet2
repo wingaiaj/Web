@@ -98,8 +98,10 @@ public class ServletDemo02 extends HttpServlet {
 						<!-- <td><a th:text="${fruit.fname}" th:href="@{'/edit.do?fid='+${fruit.fid}}">苹果</a></td> -->
 						<td><a th:text="${fruit.fname}" th:href="@{/edit.do(fid=${fruit.fid})}">苹果</a></td>
 						<td th:text="${fruit.price}">5</td>
-						<td th:text="${fruit.fcount}">20</td>
+						<td th:text="${fruit.fcount}">20</td>	
 						<!-- <td><img src="imgs/del.jpg" class="delImg" th:onclick="'delFruit('+${fruit.fid}+')'"/></td> -->
+					
+						                             thmeleaf 表达式 改为 ||遇到th语法自动识别
                         <td><img src="imgs/del.jpg" class="delImg" th:onclick="|delFruit(${fruit.fid})|"/></td>
 					</tr>
 				</table>
