@@ -60,7 +60,7 @@ public class FruitController extends ViewBaseServlet {
         }
         boolean del = fruitDaoImp.del( fid);
 
-        resp.sendRedirect("index");
+        resp.sendRedirect("fruit.do");
 
     }
     protected void edit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
