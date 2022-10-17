@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#div_fruit_list {
+    position: absolute;
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+}
+
+#tbl_fruit {
+    align-content: center;
+    width: 80%;
+    line-height: 24px;
+    margin-left: 10%;
+}
+
+#tbl_fruit, #tbl_fruit tr, #tbl_fruit td, #tbl_fruit th {
+    text-align: center;
+    border: black solid 1px;
+
+    border-collapse: collapse;
+}
+
+.w20 {
+    font-size: 24px;
+}
+
+.del {
+    width: 25px;
+    height: 25px;
+}
+
+#div_button{
+
+    align-content: center;
+
+    margin-left:20%;
+}
+
+a{
+text-align: center;
+    text-decoration: none;
+}
+
+.button_input{
+    margin-left: 8%;
+}
+
+#kw_tbl{
+    text-align: right;
+        margin-top: 5%;
+}
+#kw_tbl form{
+
+    width: 20%;
+margin-left: 5%;
+}
+#form_re{
+    float: left;
+   width: 5%;
+}
