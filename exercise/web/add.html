@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/add.css">
+</head>
+<body>
+<div id="div_edit_fruit">
+<p>添加一条记录</p>
+<form action="fruit.do" method="post">
+    <input type="hidden" name="operate" value="add"/>
+    <table id="edit_fruit">
+        <tr>
+            <td class="w20">名称</td>
+            <td><input type="text" name="fname"/></td>
+        </tr>
+        <tr>
+            <td class="w20">单价</td>
+            <td><input type="text" name="fprice"/></td>
+        </tr>
+        <tr>
+            <td class="w20">库存</td>
+            <td><input type="text" name="fcount"/></td>
+        </tr>
+        <tr>
+            <td class="w20">备注</td>
+            <td><input type="text" name="remark"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="edit_submit"><input type="submit" name="submit" value="确认"></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>

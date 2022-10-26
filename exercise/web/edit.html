@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/edit.css">
+</head>
+<body>
+<div id="div_edit_fruit">
+    <p>修改一条记录</p>
+    <form th:action="@{fruit.do}" method="post" th:object="${fruit}">
+        <input type="hidden" name="operate" th:value="update">
+        <input type="hidden" name="fid" th:value="*{fid}">
+        <table id="edit_fruit">
+            <tr>
+                <td class="w20">名称</td>
+                <td><input type="text" name="fname" th:value="*{fname}"/></td>
+            </tr>
+            <tr>
+                <td class="w20">单价</td>
+                <td><input type="text" name="fprice" th:value="*{fprice}"/></td>
+            </tr>
+            <tr>
+                <td class="w20">库存</td>
+                <td><input type="text" name="fcount" th:value="*{fcount}"/></td>
+            </tr>
+            <tr>
+                <td class="w20">备注</td>
+                <td><input type="text" name="remark" th:value="*{remark}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="edit_submit"><input type="submit" name="submit" value="确认"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

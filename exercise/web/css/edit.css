@@ -1,0 +1,55 @@
+body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+#div_edit_fruit {
+    position: relative;
+    background-color: honeydew;
+    height: 1000px;
+    width: 100%;
+
+}
+#edit_fruit{
+    height: 500px;
+    width: 500px;
+    margin-left: 30%;
+    text-align: center;
+    align-content: center;
+}
+
+#edit_fruit td,#edit_fruit tr{
+     align-content: center;
+    text-align: center;
+    background-color: grey;
+
+}
+#edit_fruit td{
+    width: 100px;
+    line-height: 15px;
+    text-align: center;
+    align-content: center;
+    border: chocolate solid 1px;
+
+}
+
+
+#edit_submit{
+    column-span: 2;
+}
+#hooixImg{
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-left: 20%;
+    margin-bottom: 20%;
+}
+p{
+    margin-left: 35%;
+    align-content: center;
+    text-align: center;
+    width: 20%;
+    border: darkslategrey solid 1px;
+    background-color: cornflowerblue;
+}

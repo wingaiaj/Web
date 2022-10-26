@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/index.css">
+    <script language="JavaScript" src="js/index.js"></script>
+</head>
+<body>
+<div id="div_fruit_list">
+    <div id="kw_tbl">
+        <form th:action="@{fruit.do}"  method="post">
+            <input type="hidden" name="op" value="oper" />
+            关键字搜索:<input type="text" name="keyword"/>
+           <input type="submit" value="搜索"/>
+        </form>
+    <table id="tbl_fruit">
+        <tr>
+            <th class="w20">名称</th>
+            <th class="w20">单价</th>
+            <th class="w20">库存</th>
+            <th class="w20">说明</th>
+            <th class="w20">操作</th>
+        </tr>
+        <tr th:if="${#lists.isEmpty(session.fruitList)}">
+            <td colspan="5">"对不起，库存为空"</td>
+        </tr>
+        <tr th:unless="${#lists.isEmpty(session.fruitList)}" th:each="fruit:${session.fruitList}">
+            <td><a th:text="${fruit.fname}" th:href="@{/fruit.do(fid=${fruit.fid},operate='edit')}"></a></td>
+            <td th:text="${fruit.fprice}"></td>
+            <td th:text="${fruit.fcount}"></td>
+            <td th:text="${fruit.remark}"></td>
+          <td>
+            <img src="img/del.jpg" class="del" th:onclick="|delFruit(${fruit.fid})|">
+            </td>
+<!--            <td><img src="img/del.jpg" class="del" th:onclick="'delFruit('+${fruit.fid}+')'"></td>-->
+        </tr>
+    </table>
+    </div>
+    <div id="div_button">
+        <a th:href="@{/add.html}">添加记录</a>
+        <input type="button" value="下一页" class="button_input" th:onclick="|pgDown(${session.pageNo+1})|" th:disabled="${session.pageNo==session.count}"/>
+        <input type="button" value="上一页" class="button_input" th:onclick="|pgDown(${session.pageNo - 1})|" th:disabled="${session.pageNo==1}"/>
+        <input type="button" value="首 页" class="button_input" th:onclick="pgDown(1)" th:disabled="${session.pageNo==1}"/>
+        <input type="button" value="尾 页" class="button_input" th:onclick="|pgDown(${session.count})|" th:disabled="${session.pageNo==(session.count)}"/>
+        <form id="form_re">
+        <input type="submit" value="重 置" class="button_input" th:action="@{fruit.do}"/>
+            <input type="hidden" name="op" value="oper"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
