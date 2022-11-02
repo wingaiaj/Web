@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/addHostReply.css">
+</head>
+<body>
+<div id="div_add_reply">
+    <form th:action="@{reply.do}" method="post">
+        <input type="hidden" name="operate" value="addHostReply">
+        <input type="hidden" name="id" th:value="${session.user.id}">
+        <input type="hidden" name="ReplyId" th:value="${session.ReplyId}">
+        <table>
+            <tr>
+                <th style="width: 25%">回复日志：</th>
+                <td><input type="text" th:value="|《${session.ReplyContent}》|" value="null" readonly/></td>
+            </tr>
+            <tr>
+                <th>回复内容：</th>
+                <td><textarea name="content" rows="3"></textarea></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value=" 回 复 "/>
+                    <input type="reset" value=" 重 置 "/>
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

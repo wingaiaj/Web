@@ -1,0 +1,21 @@
+body {
+    background-color: #E8E8FF;
+}
+
+#div_add_Topic{
+    align-content: center;
+    width: 60%;
+    margin-left: 30%;
+    margin-top: 10%;
+    padding-bottom: 32px;
+}
+
+#div_add_Topic input[type=text] {
+    width: 98%;
+    border: 0px dotted gray;
+}
+
+#div_add_Topic textarea {
+    width: 98%;
+}
+

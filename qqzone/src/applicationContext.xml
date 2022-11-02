@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans>
+    <bean id="page" class="com.zx.myssm.springmvc.PageController"/>
+    <bean id="topic" class="com.zx.qqzone.controller.TopicController"/>
+    <bean id="user" class="com.zx.qqzone.controller.UserController"/>
+    <bean id="reply" class="com.zx.qqzone.controller.ReplyController"/>
+    <bean id="TopicDAOImp" class="com.zx.qqzone.DAO.Imp.TopicDAOImp"/>
+    <bean id="BaseUserDAOImp" class="com.zx.qqzone.DAO.Imp.BasicUserDAOImp"/>
+    <bean id="ReplyDAOImp" class="com.zx.qqzone.DAO.Imp.ReplyDAOImp"/>
+    <bean id="HostReplyDAOImp" class="com.zx.qqzone.DAO.Imp.HostReplyDAOImp"/>
+    <bean id="HostReplyServiceImp" class="com.zx.qqzone.service.imp.HostReplyServiceImp">
+        <property name="hostReplyDAO" ref="HostReplyDAOImp"/>
+    </bean>
+    <bean id="ReplyServiceImp" class="com.zx.qqzone.service.imp.ReplyServiceImp">
+        <property name="replyDAO" ref="ReplyDAOImp"/>
+        <property name="hostReplyService" ref="HostReplyServiceImp"/>
+        <property name="basicUserService" ref="BasicUserServiceImp"/>
+    </bean>
+    <bean id="TopicServiceImp" class="com.zx.qqzone.service.imp.TopicServiceImp">
+        <property name="topicDAO" ref="TopicDAOImp"/>
+        <property name="replyService" ref="ReplyServiceImp"/>
+        <property name="basicUserService" ref="BasicUserServiceImp"/>
+    </bean>
+    <bean id="BasicUserServiceImp" class="com.zx.qqzone.service.imp.BasicUserServiceImp">
+        <property name="basicUserDAO" ref="BaseUserDAOImp"/>
+    </bean>
+    <bean id="user" class="com.zx.qqzone.controller.UserController">
+        <property name="basicUserService" ref="BasicUserServiceImp"/>
+        <property name="topicService" ref="TopicServiceImp"/>
+    </bean>
+    <bean id="topic" class="com.zx.qqzone.controller.TopicController">
+        <property name="topicService" ref="TopicServiceImp"/>
+    </bean>
+    <bean id="reply" class="com.zx.qqzone.controller.ReplyController">
+        <property name="replyService" ref="ReplyServiceImp"/>
+        <property name="hostReplyService" ref="HostReplyServiceImp"/>
+        <property name="topicService" ref="TopicServiceImp"/>
+    </bean>
+</beans>
