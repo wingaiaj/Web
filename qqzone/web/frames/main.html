@@ -10,7 +10,7 @@
 <div id="div_topic_list">
     <div id="div_to_add">
         <!--            thymeleaf渲染交给pageController-->
-        <a class="right8" th:href="|@{page.do?operate=page&page=frames/addTopic}|">添加日志</a>
+        <a class="right8" th:if="${session.user.id==session.friend.id}" th:href="|@{page.do?operate=page&page=frames/addTopic}|">添加日志</a>
     </div>
     <table id="tbl_topic_list">
         <tr>
